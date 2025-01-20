@@ -163,8 +163,21 @@ class ActivitiesController extends AppController
             $monthArray[] = $data['month'];
             $countArray[] = $data['count'];
         }
+        $users = $this->Activities->Users->find('list', ['limit' => 200])->all();
+        $clubs = $this->Activities->Clubs->find('list', ['limit' => 200])->all();
+        $faculties = $this->Activities->Faculties->find('list', ['limit' => 200])->all();
+        $programs = $this->Activities->Programs->find('list', ['keyfield' => 'id', 'valueField' => function
+        ($program) {
+            return $program->code . ' : ' . $program->name;
+        }, 'limit' => 200])->all();
 
-        $this->set(compact('activities', 'monthArray', 'countArray'));
+        $semesters = $this->Activities->Semesters->find('list', ['limit' => 200])->all();
+        $semesters = $this->Activities->Semesters->find('list', ['keyfield' => 'id', 'valueField' => function
+        ($semester) {
+            return $semester->code . ' : ' . $semester->session;
+        }, 'limit' => 200])->all();
+        $this->set(compact('activities', 'users', 'clubs', 'faculties', 'programs', 'semesters','monthArray', 'countArray'));
+       
     }
 
     /**

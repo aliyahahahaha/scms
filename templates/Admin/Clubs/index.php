@@ -79,7 +79,17 @@
 				<td><?php echo $counter++ ?></td>
                     <td><?= $this->Number->format($club->id) ?></td>
                     <td><?= h($club->name) ?></td>
-                    <td><?= $this->Number->format($club->status) ?></td>
+                    <td>
+    <?php 
+        if ($club->status == 0) {
+            echo '<span class="badge bg-danger">Inactive</span>';
+        } elseif ($club->status == 1) {
+            echo '<span class="badge bg-success">Active</span>';
+        } else {
+            echo '<span class="badge bg-secondary">Unknown</span>'; // Handles unexpected values
+        }
+    ?>
+</td>
                     <td><?= h($club->created) ?></td>
                     <td><?= h($club->modified) ?></td>
 					<td class="actions text-center">

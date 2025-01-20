@@ -72,10 +72,17 @@ class ActivitiesTable extends Table
             'joinType' => 'INNER',
         ]);
 		$this->addBehavior('AuditStash.AuditLog');
+
 		$this->addBehavior('Search.Search');
 		$this->searchManager()
 			->value('id')
-				->add('search', 'Search.Like', [
+            ->value('approvalstatus')
+            ->value('faculty_id')
+            ->value('user_id')
+            ->value('program_id')
+            ->value('semester_id')
+            
+				->add('approvalstatus', 'Search.Like', [
 					//'before' => true,
 					//'after' => true,
 					'fieldMode' => 'OR',
@@ -84,9 +91,20 @@ class ActivitiesTable extends Table
 					'comparison' => 'LIKE',
 					'wildcardAny' => '*',
 					'wildcardOne' => '?',
-					'fields' => ['id'],
-				]);
+					'fields' => ['approvalstatus'],
+				])
+                ->add('activity_date_from', 'Search.Compare', [
+                    'fields' => [$this->aliasField('date')],
+                    'operator' => '>='
+                ])
+                ->add('activity_date_to', 'Search.Compare', [
+                    'fields' => [$this->aliasField('date')],
+                    'operator' => '<='
+                ]);
     }
+
+   
+
 
     /**
      * Default validation rules.

@@ -278,7 +278,6 @@
     <div class="signature">
         Yang menjalankan tugas,<br />
         <br></br>
-        <strong>(_____________________)</strong><br />
         <strong>Pegawai Bertanggungjawab</strong><br />
         Bahagian Hal Ehwal Pelajar<br />
         Universiti Teknologi MARA (UiTM) Puncak Perdana

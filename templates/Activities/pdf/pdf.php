@@ -101,7 +101,7 @@
         <tr>
             <td width="78%" style="vertical-align: top;">
                 <p>
-                    <strong>Alamat:</strong><br>
+                    <br>
                     Universiti Teknologi MARA (UiTM) Puncak Perdana<br />
                     Jalan Pulau Angsa U10/1<br />
                     Seksyen U10<br />
@@ -114,6 +114,7 @@
                 <br><br>
                 <strong style="text-align: justify; white-space: nowrap;">PERMOHONAN PENGESAHAN AKTIVITI KELAB DI UiTM PUNCAK PERDANA</strong>
 
+                
                 <br><br>
             </td>
 

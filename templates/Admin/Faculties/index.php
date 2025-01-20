@@ -79,7 +79,18 @@
 				<td><?php echo $counter++ ?></td>
                     <td><?= $this->Number->format($faculty->id) ?></td>
                     <td><?= h($faculty->name) ?></td>
-                    <td><?= $this->Number->format($faculty->status) ?></td>
+                    <td>
+    <?php 
+        if ($faculty->status == 0) {
+            echo '<span class="badge bg-danger">Inactive</span>';
+        } elseif ($faculty->status == 1) {
+            echo '<span class="badge bg-success">Active</span>';
+        } else {
+            echo '<span class="badge bg-secondary">Unknown</span>'; // Handles unexpected values
+        }
+    ?>
+</td>
+
                     <td><?= h($faculty->created) ?></td>
                     <td><?= h($faculty->modified) ?></td>
 					<td class="actions text-center">

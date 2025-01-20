@@ -83,7 +83,17 @@
                     <td><?= $program->hasValue('faculty') ? $this->Html->link($program->faculty->name, ['controller' => 'Faculties', 'action' => 'view', $program->faculty->id]) : '' ?></td>
                     <td><?= h($program->code) ?></td>
                     <td><?= h($program->name) ?></td>
-                    <td><?= $this->Number->format($program->status) ?></td>
+                    <td>
+    <?php 
+        if ($program->status == 0) {
+            echo '<span class="badge bg-danger">Inactive</span>';
+        } elseif ($program->status == 1) {
+            echo '<span class="badge bg-success">Active</span>';
+        } else {
+            echo '<span class="badge bg-secondary">Unknown</span>'; // Handles unexpected values
+        }
+    ?>
+</td>
                     <td><?= h($program->created) ?></td>
                     <td><?= h($program->modified) ?></td>
 					<td class="actions text-center">

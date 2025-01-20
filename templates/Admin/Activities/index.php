@@ -360,6 +360,44 @@ const status = new Chart(ctx_2, {
 			<?php echo $this->Form->create(null, ['valueSources' => 'query', 'url' => ['controller' => 'Activities','action' => 'index']]); ?>
 				<fieldset>
 					<div class="mb-1"><?php echo $this->Form->control('id',['required' => false]); ?></div>
+					<div class="mb-1"><?php echo $this->Form->control('user_id', ['options' => $users, 'empty' => 'Select User', 'class' => 'form-control']); ?></div>
+					<div class="mb-1"><?php echo $this->Form->control('faculty_id', ['options' => $faculties, 'empty' => 'Select Faculty', 'class' => 'form-control']); ?></div>
+					<div class="mb-1"><?php echo $this->Form->control('program_id', ['options' => $programs, 'empty' => 'Select Program', 'class' => 'form-control']); ?></div>
+					<div class="mb-1"><?php echo $this->Form->control('semester_id', ['options' => $semesters, 'empty' => 'Select Semester', 'class' => 'form-control']); ?></div>
+
+					<div class="mb-1">
+    <?php 
+
+	echo $this->Form->label('Approval Status');
+	echo'<br />';
+
+    $options = [
+        '0' => 'Pending',
+        '1' => 'Approved',
+        '2' => 'Rejected',
+    ];
+
+    echo $this->Form->control('approvalstatus', [
+        'type' => 'select',  // Use 'select' for dropdown, or remove for multi-checkbox.
+        'multiple' => 'checkbox', // Enable multi-checkbox rendering.
+        'options' => $options,    // Pass options here.
+        'class' => 'form-check-input', // Apply your styling.
+        'label' => false, // To remove the default label.
+    ]);
+    ?>
+</div>
+
+<div class="mb-1">
+	<?php echo $this->Form->control('activity_date_from',['label'=>'Activity Date From','type'=>'date']);
+	?>
+	</div>
+
+	<div class="mb-1">
+	<?php echo $this->Form->control('activity_date_to',['label'=>'Activity Date To','type'=>'date']);
+	?>
+	</div>
+
+
 				</fieldset>
 		<div class="text-end">
 			<?php 
