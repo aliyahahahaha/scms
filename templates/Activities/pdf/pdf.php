@@ -110,7 +110,7 @@
                     <strong>Malaysia</strong>
                 </p>
            
-                <strong>Untuk Perhatian: <?= h($activity->user->fullname) ?></strong>
+                <strong>Untuk Perhatian: <?= h($activity->club->name) ?></strong>
                 <br><br>
                 <strong style="text-align: justify; white-space: nowrap;">PERMOHONAN PENGESAHAN AKTIVITI KELAB DI UiTM PUNCAK PERDANA</strong>
 
@@ -141,11 +141,6 @@
             <td>NAMA AKTIVITI</td>
             <td>:</td>
             <td><?= h($activity->name) ?></td>
-        </tr>
-        <tr>
-            <td>NAMA PEMOHON</td>
-            <td>:</td>
-            <td><?= h($activity->user->fullname) ?></td>
         </tr>
         <tr>
             <td>FAKULTI</td>
