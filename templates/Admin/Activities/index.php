@@ -93,7 +93,7 @@
                     <td><?= ($activity->club->name) ?></td>
                     <td><?= h($activity->name) ?></td>
 
-                    <td><?= date ('M d, Y', strtotime($activity->date)) ?></td>
+                    <td><?= date ('d M, Y', strtotime($activity->date)) ?></td>
 
 					<td><?= h($activity->approvalby) ?></td>
 

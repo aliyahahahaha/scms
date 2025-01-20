@@ -1,173 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  
-    <title>Activity</title>
+    <title>Permohonan Pengesahan Aktiviti Kelab UiTM Puncak Perdana</title>
     <style>
         @page {
             margin: 0px !important;
             padding: 0px !important;
         }
 
-        .body {
+        body {
             font-family: Arial, Helvetica, sans-serif;
             font-size: 13px;
         }
 
+        .right {
+            text-align: right;
+            padding-right: 50px;
+        }
+
         .top {
-        width: 100%;
-        margin: auto;
-    }
+            width: 100%;
+            margin: auto;
+        }
 
-    .one {
-        width: 72%;
-        height: 25px;
-        background: #292983;
-        float: left;
-    }
+        .one {
+            width: 72%;
+            height: 25px;
+            background: #292983;
+            float: left;
+        }
 
-    .two {
-        margin-left: 28%;
-        height: 25px;
-        background: #912891;
-    }
+        .two {
+            margin-left: 28%;
+            height: 25px;
+            background: #912891;
+        }
 
-    .capital {
-        text-transform: uppercase;
-    }
+        .capital {
+            text-transform: uppercase;
+        }
 
-    .content {
-        padding: 20px;
-        margin-bottom: 50px; /* Space for footer */
-        overflow: auto; /* Clear floats inside the content */
-    }
+        .content {
+            padding: 20px;
+            margin-bottom: 50px;
+            overflow: auto;
+            text-align: justify;
+        }
 
-    .address {
-        font-size: 14px;
-        margin-bottom: 20px;
-    }
+        .table {
+            width: 100%;
+            margin-top: 20px;
+        }
 
-    .table {
-        width: 100%;
-        margin-top: 20px;
-    }
+        .table-bordered {
+            border: 1px solid #000;
+            border-collapse: collapse;
+        }
 
-    .table-bordered {
-        border: 1px solid #000;
-        border-collapse: collapse;
-    }
+        .table-sm {
+            font-size: 12px;
+        }
 
-    .table-sm {
-        font-size: 12px;
-    }
+        .table td,
+        .table th {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: left;
+        }
 
-    .table td, .table th {
-        border: 1px solid #000;
-        padding: 8px;
-        text-align: left;
-    }
+        .approval-status {
+            font-weight: bold;
+        }
 
-    .signature {
-        margin-top: 40px;
-    }
+        .approved {
+            color: green;
+        }
 
-    .justify {
-        text-align: justify;
-    }
-
-    .text-end {
-        text-align: right;
-    }
-
-    .activity-data-container {
-    position: fixed;
-    top: 150px;  
-    right: 20px; 
-    width: 300px;
-    z-index: 1000; 
-}
-
-.content {
-    margin-left: 70px;
-    margin-right: 70px;
-}
+        .rejected {
+            color: red;
+        }
     </style>
-
 </head>
+
 <body>
-    <section class="top">
-            <div class="one"></div>
-            <div class="two"></div>
-    </section>
 
-    <div class="text-end my-4 me-5">
-        <?php echo $this->Html->image('../img/surat/logouitm.png',['width'=>'180px', 'fullBase' => true]) ?>
-    </div>
+<section class="top">
+    <div class="one"></div>
+    <div class="two"></div>
+</section>
 
-    <hr />
+<div class="text-end my-4 me-5">
+    <?php echo $this->Html->image('../img/surat/logouitm.png',['width'=>'180px', 'fullBase' => true]) ?>
+</div>
 
-    <div class="content">
-    <table width="100%">
-    <tr>
-        <td width="78%" class="text-end">Surat Kami &nbsp; : &nbsp; </td>
-        <td>
-            <?php 
-            if ($activity->approvalstatus == 0) {
-                echo '-';
-            } elseif ($activity->approvalstatus == 1) {
-                echo $activity->ref_no;
-            } else 
-                echo 'Rejected';
-            
-            ?>
-        </td>
-    </tr>
-
-    <tr>
-        <td class="text-end">Tarikh &nbsp; : &nbsp; </td>
-        <td>
-            <?php 
-            if ($activity->approvalstatus == 0) {
-                echo '-';
-            } elseif ($activity->approvalstatus == 1) {
-                echo date('d F Y', strtotime($activity->modified));
-            } else 
-                echo 'Rejected';
-            
-            ?>
-        </td>
-    </tr>
-</table>
+<hr />
 
 <div class="content">
-    <div class="address">
-        Universiti Teknologi MARA (UiTM) Puncak Perdana<br />
-        Jalan Pulau Angsa U10/1<br />
-        Seksyen U10<br />
-        40150 Shah Alam,<br />
-        Selangor<br />
-        <strong>Malaysia</strong>
-    </div>
+    <table width="100%">
+        <tr>
+            <td width="78%" style="vertical-align: top;">
+                <p>
+                    <strong>Alamat:</strong><br>
+                    Universiti Teknologi MARA (UiTM) Puncak Perdana<br />
+                    Jalan Pulau Angsa U10/1<br />
+                    Seksyen U10<br />
+                    40150 Shah Alam,<br />
+                    Selangor<br />
+                    <strong>Malaysia</strong>
+                </p>
+           
+                <strong>Untuk Perhatian: <?= h($activity->user->fullname) ?></strong>
+                <br><br>
+                <strong style="text-align: justify; white-space: nowrap;">PERMOHONAN PENGESAHAN AKTIVITI KELAB DI UiTM PUNCAK PERDANA</strong>
 
-    <br><br>
+                <br><br>
+            </td>
 
-    <strong>Untuk Perhatian: <?= h($activity->user->fullname) ?></strong>
-    <br><br>
-    <strong>PERMOHONAN PENGESAHAN AKTIVITI KELAB DI UiTM PUNCAK PERDANA</strong>
-    <br><br>
+            <td width="50%" style="vertical-align: top;">
+                <table width="100%">
+                    <tr>
+                        <td width="50%" class="text-end">Surat Kami &nbsp;: &nbsp;</td>
+                        <td>
+                            <?= !empty($activity->ref_no) ? h($activity->ref_no) : 'Tiada Nombor Rujukan' ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-end">Tarikh &nbsp;: &nbsp;</td>
+                        <td>
+                            <?= !empty($activity->modified) ? h($activity->modified->format('d F Y')) : '-' ?>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
 
-    <div class="justify">
-        Dengan segala hormatnya, perkara di atas adalah dirujuk.
-        <br /><br />
-
-        2. Pihak pengurusan UiTM Puncak Perdana telah meneliti permohonan aktiviti yang dikemukakan oleh pihak kelab <strong><?= h($activity->club->name) ?></strong> seperti berikut:
-    </div>
-    
-
-    <br />
-
-
-    <table class="table table-bordered table-sm capital table_transparent">
+    <table class="table table-bordered table-sm capital">
         <tr>
             <td>NAMA AKTIVITI</td>
             <td>:</td>
@@ -201,7 +170,7 @@
         <tr>
             <td>TARIKH</td>
             <td>:</td>
-            <td><?= h($activity->date) ?></td>
+            <td><?=date ('d M, Y', strtotime($activity->date)) ?></td>
         </tr>
         <tr>
             <td>MASA</td>
@@ -218,92 +187,63 @@
             <td>:</td>
             <td><?= h($activity->participant) ?></td>
         </tr>
-
         <tr>
-            <td><strong>Kelulusan</strong></td>
+            <td>STATUS KELULUSAN</td>
             <td>:</td>
-            <td>
-                <?php if ($activity->approvalstatus == 1) { ?>
-                    <span style="color: green; font-weight: bold;">DILULUSKAN</span>
-                <?php } else { ?>
-                    <span style="color: red; font-weight: bold;">TIDAK DILULUSKAN</span>
-                <?php } ?>
+            <td class="approval-status <?= $activity->approvalstatus == 1 ? 'approved' : 'rejected' ?>">
+                <?= $activity->approvalstatus == 1 ? '<span class="approved">DILULUSKAN</span>' : '<span class="rejected">TIDAK DILULUSKAN</span>' ?>
             </td>
         </tr>
-
     </table>
 
     <br />
+
     <div class="justify">
         <?php if ($activity->approvalstatus == 1) { ?>
-            3. Sukacita dimaklumkan bahawa permohonan aktiviti ini telah <strong>DILULUSKAN</strong>. Namun, pihak kelab diminta untuk memastikan semua peraturan dan prosedur yang ditetapkan oleh pihak universiti dipatuhi. Antara syarat yang perlu diikuti adalah:
+            3. Sukacita dimaklumkan bahawa permohonan aktiviti ini telah <strong class="approved">DILULUSKAN</strong>. Sila pastikan semua peraturan dipatuhi:
             <ul>
                 <li>Mematuhi semua garis panduan keselamatan universiti.</li>
                 <li>Mendapatkan kelulusan bertulis dari pihak keselamatan jika melibatkan kawasan luar kampus.</li>
                 <li>Menyerahkan laporan aktiviti selepas program selesai.</li>
             </ul>
-            4. Sebarang pertanyaan lanjut boleh diajukan kepada pihak pengurusan UiTM Puncak Perdana.
         <?php } else { ?>
-            3. Dukacita dimaklumkan bahawa permohonan aktiviti ini <strong>TIDAK DILULUSKAN</strong> atas sebab-sebab berikut:
+            3. Dukacita dimaklumkan bahawa permohonan aktiviti ini <strong class="rejected">TIDAK DILULUSKAN</strong> kerana:
             <ul>
                 <li><?= h($activity->rejection_reason) ?></li>
             </ul>
-            4. Pihak kelab boleh mengemukakan permohonan semula dengan menepati garis panduan yang telah ditetapkan.
-
-            
         <?php } ?>
-        <br /> <br />
-
-        
+       
     </div>
 
-<table width="100%">
+
+
+    <table width="100%">
     <tr>
-        <td width="85%">
-        Sekian, Terima Kasih.
-        <br></br>
-        <?php 
-                        if ($activity->approvalstatus == 0) {
-                            echo '<span class="badge bg-warning">Pending</span>';
-                        } elseif ($activity->approvalstatus == 1) {
-                            echo '<span class="badge bg-success">Approved</span>';
-                        } elseif ($activity->approvalstatus == 2) {
-                            echo '<span class="badge bg-danger">Rejected</span>';
-                        } else {
-                            echo '<span class="badge bg-danger">Error</span>';
-                        }
-                        ?>
-                        </td>
-        <td width="5%" class="right">
-        <img src="<?php echo 'http://localhost/scm/js/qr-pdf/qrcode.php?-s=qrh&d=' . urlencode($this->request->getUri()); ?>" class="qr">
-
-
+        <td width="85%" style="vertical-align: bottom;">
+            Sekian, Terima Kasih
+            <br />
+            <?= $activity->status == 0 
+                ? '<strong class="text-danger">[Dalam Proses Semakan]</strong>' 
+                : ($activity->status == 1 
+                    ? 'Yang menjalankan tugas,<br/><strong>Pegawai Bertanggungjawab</strong><br />Bahagian Hal Ehwal Pelajar<br />
+                    Universiti Teknologi MARA (UiTM) Puncak Perdana<br /><strong>CETAKAN BERKOMPUTER. TIDAK PERLU TANDATANGAN</strong>' 
+                    : 'Rejected') ?>
+        </td>
+        <td width="5%" class="right" style="vertical-align: bottom;">
+            <img src="http://localhost/scm3/js/qr-pdf/qrcode.php?s=qrh&d=<?= $this->request->getUri(); ?>" class="qr" style="width: 85px; height: 85px;">
         </td>
     </tr>
+</table>
 
+<hr style="margin: 5px 0;" />
 
-<div class="content">
-    <!-- Signature content -->
-    <div class="signature">
-        Yang menjalankan tugas,<br />
-        <br></br>
-        <strong>(_____________________)</strong><br />
-        <strong>Pegawai Bertanggungjawab</strong><br />
-        Bahagian Hal Ehwal Pelajar<br />
-        Universiti Teknologi MARA (UiTM) Puncak Perdana
-<br></br>
-        <strong><i>CETAKAN BERKOMPUTER. TIDAK PERLU TANDATANGAN.</i></strong>
-    </div>
-    </div>  
+<!-- Logo Section (Bottom-Aligned) -->
+<div class="right" style="text-align: right; display: flex; justify-content: flex-end; align-items: flex-end; gap: 30px;">
 
-<hr />
-<<div class="text-end my-4 me-5">
-    <?php echo $this->Html->image('/img/surat/ISO.jpg', ['width' => '150px', 'fullBase' => true]); ?>
+    <?php echo $this->Html->image('/img/surat/ISO.png', ['width' => '70px', 'fullBase' => true]); ?>
+    <?php echo $this->Html->image('/img/surat/uitmdihatiku.png', ['width' => '80px', 'fullBase' => true]); ?>
 </div>
 
-<div class="text-end my-4 me-5">
-    <?php echo $this->Html->image('/img/surat/uitmdihatiku.png', ['width' => '150px', 'fullBase' => true]); ?>
-</div> 
- 
 </body>
 </html>
+

@@ -34,12 +34,6 @@
 			<div class="card-body text-body-secondary">
            
             <style>
-            @page {
-                margin: 0px !important;
-                padding: 0px !important;
-            }
-
-           
 
     .top {
         width: 100%;
@@ -64,9 +58,10 @@
     }
 
     .content {
-        margin-left: 70px;
-        margin-right: 70px;
-        
+       
+        padding: 20px;
+        margin-bottom: 50px; /* Space for footer */
+        overflow: auto; /* Clear floats inside the content */
     }
 
     .address {
@@ -277,7 +272,7 @@
 
         Sekian, Terima Kasih.
     </div>
-
+    
 <div class="content">
     <!-- Signature content -->
     <div class="signature">
